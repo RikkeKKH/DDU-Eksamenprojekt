@@ -18,6 +18,8 @@ public class LavFunktion : MonoBehaviour
     public TextMeshProUGUI HøjreSvarmulighed;
     public TextMeshProUGUI TopSvarmulighed;
 
+    public TextMeshProUGUI tiimer;
+
     //int rundeNr=0;
 
     //public TextMeshProUGUI[] TextListe;
@@ -26,11 +28,15 @@ public class LavFunktion : MonoBehaviour
     List <string> svarmuligheder2;
     List <string> svarmuligheder3;
     List <string> svarmuligheder4;
+    List <string> svarmulighederBlank =new List<string>{"","","","",};
     public List<TextMeshProUGUI> TextListe;
-    List<int> PladsOptaget = new List<int>();
+    public List<int> PladsOptaget = new List<int>();
 
-    int test =0;
+    public int rundeNr =0;
     
+    float timer =15;
+
+    bool tidenGået =false;
 
     
 
@@ -158,36 +164,6 @@ public class LavFunktion : MonoBehaviour
     void Update()
     {   
 
-        if (Input.GetKeyDown(KeyCode.J)){
-            test=test+1;
-            svarmuligheder.Clear();
-
-            if(test==1){
-                for (int i=0;i<4;i++){
-                    svarmuligheder.Add(svarmuligheder1[i]);
-                }
-            }
-            if(test==2){
-                for (int i=0;i<4;i++){
-                    svarmuligheder.Add(svarmuligheder2[i]);
-                }
-            }
-            if(test==3){
-                for (int i=0;i<4;i++){
-                    svarmuligheder.Add(svarmuligheder3[i]);
-                }
-            }
-            if(test==4){
-                for (int i=0;i<4;i++){
-                    svarmuligheder.Add(svarmuligheder4[i]);
-                }
-            }
-
-
-        }
-        
-     
-
         while (PladsOptaget.Count<4){
             int r =Random.Range(0,4);
             if (!PladsOptaget.Contains(r)){
@@ -196,8 +172,86 @@ public class LavFunktion : MonoBehaviour
         }
 
         for (int i=0;i<4;i++){
-            TextListe[i].text=svarmuligheder[PladsOptaget[i]];
+            TextListe[PladsOptaget[i]].text=svarmuligheder[i];
         }
+
+        //Debug.Log("PO"+PladsOptaget[0]);
+
+
+        if (Input.GetKeyDown(KeyCode.Return)){
+            rundeNr=rundeNr+1;
+           
+            
+
+            timer=15;
+
+            if(rundeNr==2){
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmuligheder1[i]);
+                }
+            }
+            if (rundeNr==3){
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmulighederBlank[i]);
+                }
+            }
+            if(rundeNr==4){
+                PladsOptaget.Clear();
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmuligheder2[i]);
+                }
+            }
+            if (rundeNr==5){
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmulighederBlank[i]);
+                }
+            }
+            if(rundeNr==6){
+                PladsOptaget.Clear();
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmuligheder3[i]);
+                }
+            }
+            if (rundeNr==7){
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmulighederBlank[i]);
+                }
+            }
+            if(rundeNr==8){
+                PladsOptaget.Clear();
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmuligheder4[i]);
+                }
+            }
+            if (rundeNr==9){
+                svarmuligheder.Clear();
+                for (int i=0;i<4;i++){
+                    svarmuligheder.Add(svarmulighederBlank[i]);
+                }
+            }
+
+
+        }
+
+        if (timer<0){
+            tidenGået=true;
+        }
+
+        timer-=Time.deltaTime;
+
+        tiimer.text=timer.ToString();
+
+        
+     
+
+        
        
 
 

@@ -19,6 +19,8 @@ public class Rotering : MonoBehaviour
 
     
     public StartGame SG;
+
+    bool start=false;
     
 
     
@@ -31,7 +33,10 @@ public class Rotering : MonoBehaviour
 
     
     void Update()
-    {
+    {   
+        if (SG.startet==true&& tryk==0){
+            start=true;
+        }
 
 
         float distance =Vector3.Distance(this.transform.position,nulpunkt.transform.position);
@@ -40,7 +45,7 @@ public class Rotering : MonoBehaviour
 
 
 
-        if(SG.startet==true){
+        if(start==true){
             roter=true;
         
         }
@@ -54,11 +59,12 @@ public class Rotering : MonoBehaviour
         }
 
         if (Input.GetKeyDown("space")){
-            SG.startet=false;
+            tryk +=1;
+            start=false;
 
             roter=false;
 
-            tryk +=1;
+            
             
 
 
