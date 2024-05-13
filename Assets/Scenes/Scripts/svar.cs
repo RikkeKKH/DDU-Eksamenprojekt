@@ -62,7 +62,7 @@ public class svar : MonoBehaviour
 
 
 
-                if (P1s==LF.PladsOptaget[0]){
+                if (LF.PladsOptaget.Count != 0 && P1s==LF.PladsOptaget[0]){
                     P1r=true;
                 }
                 else {
@@ -125,7 +125,7 @@ public class svar : MonoBehaviour
 
 
 
-                if (P3s==LF.PladsOptaget[0]){
+                if (LF.PladsOptaget.Count != 0 && P3s==LF.PladsOptaget[0]){
                     P3r=true;
                 }
                 else {
@@ -154,7 +154,7 @@ public class svar : MonoBehaviour
 
 
 
-                if (P4s==LF.PladsOptaget[0]){
+                if (LF.PladsOptaget.Count != 0 && P4s==LF.PladsOptaget[0]){
                     P4r=true;
                 }
                 else {
