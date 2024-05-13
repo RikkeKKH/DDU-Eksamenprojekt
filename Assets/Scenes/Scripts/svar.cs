@@ -40,7 +40,6 @@ public class svar : MonoBehaviour
     void Update()
     {   
 
-        Debug.Log("P2s:"+P2s);
         if(SG.startet==true){
 
             if (AS.Player_1==true&&P1t==false){
@@ -66,6 +65,9 @@ public class svar : MonoBehaviour
                 if (P1s==LF.PladsOptaget[0]){
                     P1r=true;
                 }
+                else {
+                    P1r=false;
+                }
 
                 
 
@@ -90,9 +92,6 @@ public class svar : MonoBehaviour
                     P2t=true;
                 }
 
-                if(P2s==5){
-                    P2r=false;
-                }
 
                 if (P2s==LF.PladsOptaget[0]){
                     P2r=true;
@@ -129,6 +128,9 @@ public class svar : MonoBehaviour
                 if (P3s==LF.PladsOptaget[0]){
                     P3r=true;
                 }
+                else {
+                    P3r=false;
+                }
 
             }
 
@@ -155,8 +157,11 @@ public class svar : MonoBehaviour
                 if (P4s==LF.PladsOptaget[0]){
                     P4r=true;
                 }
+                else {
+                    P4r=false;
+                }
 
-                Debug.Log(P4r);
+
 
             }
 

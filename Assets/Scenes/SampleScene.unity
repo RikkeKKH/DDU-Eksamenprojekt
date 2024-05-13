@@ -1217,10 +1217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SG: {fileID: 1389281710}
-  P1s: 0
-  P2s: 0
-  P3s: 0
-  P4s: 0
+  P1s: 5
+  P2s: 5
+  P3s: 5
+  P4s: 5
   P1r: 0
   P2r: 0
   P3r: 0
