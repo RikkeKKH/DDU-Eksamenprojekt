@@ -93,7 +93,7 @@ public class svar : MonoBehaviour
                 }
 
 
-                if (P2s==LF.PladsOptaget[0]){
+                if (LF.PladsOptaget.Count != 0 && P2s==LF.PladsOptaget[0]){
                     P2r=true;
                 }
                 else {
