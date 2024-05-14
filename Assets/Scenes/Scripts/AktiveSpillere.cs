@@ -16,10 +16,10 @@ public class AktiveSpillere : MonoBehaviour
     public bool Player_3 = false;
     public bool Player_4 = false;
 
-    private GameObject I1;
-    private GameObject I2;
-    private GameObject I3;
-    private GameObject I4;
+    public GameObject I1;
+    public GameObject I2;
+    public GameObject I3;
+    public GameObject I4;
 
     public StartGame SG;
 
@@ -57,7 +57,7 @@ public class AktiveSpillere : MonoBehaviour
 
                 if (Player_2==true){
                     I2 = Instantiate(P2,new Vector3(8,1,0),Quaternion.identity);
-                    I2.GetComponent<Rotering>().SG = SG;
+                    I2.GetComponent<RotArrow>().SG = SG;
                 
                 }
                 if (Player_2==false){

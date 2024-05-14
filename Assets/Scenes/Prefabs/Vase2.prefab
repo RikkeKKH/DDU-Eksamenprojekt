@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 419800015849459118}
   - component: {fileID: 2143081428160147724}
   m_Layer: 0
-  m_Name: Vase
+  m_Name: Vase2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c7ca29d14ca75e5419c2a1bcadfaa5cb, type: 2}
+  - {fileID: 2100000, guid: 240a510ccf7fe81468485c23b5569925, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

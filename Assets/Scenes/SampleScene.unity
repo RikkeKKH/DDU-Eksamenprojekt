@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1140,6 +1140,7 @@ GameObject:
   - component: {fileID: 1121724477}
   - component: {fileID: 1121724478}
   - component: {fileID: 1121724479}
+  - component: {fileID: 1121724480}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1182,6 +1183,10 @@ MonoBehaviour:
   Player_2: 0
   Player_3: 0
   Player_4: 0
+  I1: {fileID: 0}
+  I2: {fileID: 0}
+  I3: {fileID: 0}
+  I4: {fileID: 0}
   SG: {fileID: 1389281710}
 --- !u!114 &1121724477
 MonoBehaviour:
@@ -1241,9 +1246,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b148e0f70068949a1b035481714c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vase: {fileID: 1923652149225431815, guid: 83faddd91aa688a4591e7b0ee78fe9ec, type: 3}
+  vase1: {fileID: 1923652149225431815, guid: 83faddd91aa688a4591e7b0ee78fe9ec, type: 3}
+  vase2: {fileID: 1923652149225431815, guid: 3b409373aa24cb94f9d3006e0c8c74a5, type: 3}
+  vase3: {fileID: 1923652149225431815, guid: 83faddd91aa688a4591e7b0ee78fe9ec, type: 3}
+  vase4: {fileID: 1923652149225431815, guid: 83faddd91aa688a4591e7b0ee78fe9ec, type: 3}
+  P1va: {fileID: 0}
+  P2va: {fileID: 0}
+  P3va: {fileID: 0}
+  P4va: {fileID: 0}
   koerigennem: 1
+  P1ve: {x: 0, y: 0, z: 0}
   P2ve: {x: 0, y: 0, z: 0}
+  P3ve: {x: 0, y: 0, z: 0}
+  P4ve: {x: 0, y: 0, z: 0}
+--- !u!114 &1121724480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121724474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bca5dbdfea2344086b38dde3c3829d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1162986099
 GameObject:
   m_ObjectHideFlags: 0
