@@ -24,6 +24,12 @@ public class svar : MonoBehaviour
     public bool P3t=false;
     public bool P4t=false;
 
+    public int P1score=0;
+    public int P2score=0;
+    public int P3score=0;
+    public int P4score=0;
+
+    public List <int> listeRigtige=new List<int>();
 
 
     // Start is called before the first frame update
@@ -67,6 +73,8 @@ public class svar : MonoBehaviour
 
                     if (LF.PladsOptaget.Count != 0 && P1s==LF.PladsOptaget[0]){
                         P1r=true;
+                        listeRigtige.Add(P1score);
+
                     }
                     else {
                         P1r=false;
@@ -98,6 +106,7 @@ public class svar : MonoBehaviour
 
                     if (LF.PladsOptaget.Count != 0 && P2s==LF.PladsOptaget[0]){
                         P2r=true;
+                        listeRigtige.Add(P2score);
                     }
                     else {
                         P2r=false;
@@ -130,6 +139,7 @@ public class svar : MonoBehaviour
 
                     if (LF.PladsOptaget.Count != 0 && P3s==LF.PladsOptaget[0]){
                         P3r=true;
+                        listeRigtige.Add(P3score);
                     }
                     else {
                         P3r=false;
@@ -159,6 +169,7 @@ public class svar : MonoBehaviour
 
                     if (LF.PladsOptaget.Count != 0 && P4s==LF.PladsOptaget[0]){
                         P4r=true;
+                        listeRigtige.Add(P4score);
                     }
                     else {
                         P4r=false;

@@ -8,17 +8,19 @@ public class RotW : MonoBehaviour
     public GameObject nulpunkt;
 
     
-    public float speed=0.5f;
+    public float speed=5f;
 
     bool roter = false;
     bool midt = false;
-    bool stop = false;
+    public bool stop = false;
 
 
     int tryk=0;
 
     
     public StartGame SG;
+
+    public Ram rm;
 
     bool start=false;
     
@@ -72,7 +74,7 @@ public class RotW : MonoBehaviour
         if (roter==false){
 
 
-            if (stop==false&& tryk==1){
+            if (rm.rwStop==false&& tryk==1){
                 if (midt==false){
                     transform.position = transform.position+retning*speed*Time.deltaTime;
 
@@ -94,7 +96,7 @@ public class RotW : MonoBehaviour
             }   
 
             if (tryk==2){
-                stop=true;
+                rm.rwStop=true;
 
             }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotArrow : MonoBehaviour
+public class RotI : MonoBehaviour
 {
    
     public GameObject nulpunkt;
@@ -36,13 +36,15 @@ public class RotArrow : MonoBehaviour
     
     void Update()
     {   
-        
-        float distance =Vector3.Distance(this.transform.position,nulpunkt.transform.position);
-        Vector3 retning = nulpunkt.transform.position - transform.position;
-
         if (SG.startet==true&& tryk==0){
             start=true;
         }
+
+
+        float distance =Vector3.Distance(this.transform.position,nulpunkt.transform.position);
+        Vector3 retning = nulpunkt.transform.position - transform.position;
+
+
 
 
         if(start==true){
@@ -58,7 +60,7 @@ public class RotArrow : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)){
+        if (Input.GetKeyDown(KeyCode.I)){
             tryk +=1;
             start=false;
 
@@ -74,7 +76,7 @@ public class RotArrow : MonoBehaviour
         if (roter==false){
 
 
-            if (rm.rArrowStop==false&& tryk==1){
+            if (stop==false&& tryk==1){
                 if (midt==false){
                     transform.position = transform.position+retning*speed*Time.deltaTime;
 
@@ -96,7 +98,7 @@ public class RotArrow : MonoBehaviour
             }   
 
             if (tryk==2){
-                rm.rArrowStop=true;
+                stop=true;
 
             }
 

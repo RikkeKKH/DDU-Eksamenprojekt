@@ -5,6 +5,8 @@ using UnityEngine;
 public class AktiveSpillere : MonoBehaviour
 {
 
+    GameObject GM;
+    Ram rm;
     public GameObject P1;
     public GameObject P2;
     public GameObject P3;
@@ -23,9 +25,13 @@ public class AktiveSpillere : MonoBehaviour
 
     public StartGame SG;
 
+    public List <string> Aktiv=new List<string>();
+
 
     void Start()
     {
+        GM =GameObject.Find("GameManager");
+        rm=GM.GetComponent<Ram>();
         
     }
 
@@ -39,11 +45,13 @@ public class AktiveSpillere : MonoBehaviour
                 if (Player_1==true){
                     I1 = Instantiate(P1,new Vector3(0,1,8),Quaternion.identity);
                     I1.GetComponent<RotW>().SG = SG;
+                    I1.GetComponent<RotW>().rm = rm;
+                    Aktiv.Add("P1");
                 
                 }
                 if (Player_1==false){
                     Destroy(I1);               
-                    
+                    Aktiv.Remove("P1"); 
                 }
 
 
@@ -58,11 +66,13 @@ public class AktiveSpillere : MonoBehaviour
                 if (Player_2==true){
                     I2 = Instantiate(P2,new Vector3(8,1,0),Quaternion.identity);
                     I2.GetComponent<RotArrow>().SG = SG;
+                    I2.GetComponent<RotArrow>().rm = rm;
+                    Aktiv.Add("P2");
                 
                 }
                 if (Player_2==false){
                     Destroy(I2);               
-                    
+                    Aktiv.Remove("P2"); 
                 }
 
 
@@ -74,11 +84,14 @@ public class AktiveSpillere : MonoBehaviour
 
                 if (Player_3==true){
                     I3 = Instantiate(P3,new Vector3(0,1,-8),Quaternion.identity);
-                    I3.GetComponent<Rotering>().SG = SG;
+                    I3.GetComponent<RotI>().SG = SG;
+                    I3.GetComponent<RotI>().rm = rm;
+                    Aktiv.Add("P3");
                 
                 }
                 if (Player_3==false){
-                    Destroy(I3);               
+                    Destroy(I3);
+                    Aktiv.Remove("P3");                
                     
                 }
 
@@ -89,11 +102,14 @@ public class AktiveSpillere : MonoBehaviour
 
                 if (Player_4==true){
                     I4 = Instantiate(P4,new Vector3(-8,1,0),Quaternion.identity);
-                    I4.GetComponent<Rotering>().SG = SG;
+                    I4.GetComponent<RotT>().SG = SG;
+                    I4.GetComponent<RotT>().rm = rm;
+                    Aktiv.Add("P4");
                 
                 }
                 if (Player_4==false){
-                    Destroy(I4);               
+                    Destroy(I4);  
+                    Aktiv.Remove("P4");             
                     
                 }
 

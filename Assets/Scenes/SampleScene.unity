@@ -1188,6 +1188,7 @@ MonoBehaviour:
   I3: {fileID: 0}
   I4: {fileID: 0}
   SG: {fileID: 1389281710}
+  Aktiv: []
 --- !u!114 &1121724477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1234,6 +1235,11 @@ MonoBehaviour:
   P2t: 0
   P3t: 0
   P4t: 0
+  P1score: 0
+  P2score: 0
+  P3score: 0
+  P4score: 0
+  listeRigtige: 
 --- !u!114 &1121724479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,6 +1277,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bca5dbdfea2344086b38dde3c3829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rwStop: 0
+  rArrowStop: 0
+  rIStop: 0
+  rTStop: 0
 --- !u!1 &1162986099
 GameObject:
   m_ObjectHideFlags: 0

@@ -222,6 +222,7 @@ public class LavFunktion : MonoBehaviour
                 resetSvar();
             }
             if(rundeNr==4){
+                sv.listeRigtige.Clear();
                 PladsOptaget.Clear();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
@@ -237,6 +238,7 @@ public class LavFunktion : MonoBehaviour
                 resetSvar();
             }
             if(rundeNr==6){
+                sv.listeRigtige.Clear();
                 PladsOptaget.Clear();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
@@ -252,6 +254,7 @@ public class LavFunktion : MonoBehaviour
                 resetSvar();
             }
             if(rundeNr==8){
+                sv.listeRigtige.Clear();
                 PladsOptaget.Clear();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
