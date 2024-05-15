@@ -1256,6 +1256,10 @@ MonoBehaviour:
   rArrowStop: 0
   rIStop: 0
   rTStop: 0
+  ramt: 
+  givPoint: 00000000
+  ramtVenteliste: 
+  givPointVenteliste: 
 --- !u!114 &1121724481
 MonoBehaviour:
   m_ObjectHideFlags: 0
