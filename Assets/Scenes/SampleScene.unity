@@ -1014,7 +1014,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1139,8 +1139,8 @@ GameObject:
   - component: {fileID: 1121724476}
   - component: {fileID: 1121724477}
   - component: {fileID: 1121724478}
-  - component: {fileID: 1121724479}
   - component: {fileID: 1121724480}
+  - component: {fileID: 1121724481}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1240,31 +1240,6 @@ MonoBehaviour:
   P3score: 0
   P4score: 0
   listeRigtige: 
---- !u!114 &1121724479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121724474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b148e0f70068949a1b035481714c39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vase1: {fileID: 1923652149225431815, guid: 83faddd91aa688a4591e7b0ee78fe9ec, type: 3}
-  vase2: {fileID: 1923652149225431815, guid: 3b409373aa24cb94f9d3006e0c8c74a5, type: 3}
-  vase3: {fileID: 1923652149225431815, guid: 83faddd91aa688a4591e7b0ee78fe9ec, type: 3}
-  vase4: {fileID: 1923652149225431815, guid: 83faddd91aa688a4591e7b0ee78fe9ec, type: 3}
-  P1va: {fileID: 0}
-  P2va: {fileID: 0}
-  P3va: {fileID: 0}
-  P4va: {fileID: 0}
-  koerigennem: 1
-  P1ve: {x: 0, y: 0, z: 0}
-  P2ve: {x: 0, y: 0, z: 0}
-  P3ve: {x: 0, y: 0, z: 0}
-  P4ve: {x: 0, y: 0, z: 0}
 --- !u!114 &1121724480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,6 +1256,25 @@ MonoBehaviour:
   rArrowStop: 0
   rIStop: 0
   rTStop: 0
+--- !u!114 &1121724481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121724474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb193b1652dcf44eac71adc514b2467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vase1: {fileID: 9188561232074570568, guid: ba097ef398ab69644b1cc7b7de3fcc79, type: 3}
+  vase2: {fileID: 6041714275389245668, guid: 48cbd207e87f1cb42a20b66816775fb7, type: 3}
+  vasen: {fileID: 0}
+  vI: {fileID: 0}
+  Plads: []
+  Inst: []
+  vaseType: []
 --- !u!1 &1162986099
 GameObject:
   m_ObjectHideFlags: 0

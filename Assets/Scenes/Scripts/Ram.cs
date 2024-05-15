@@ -7,7 +7,6 @@ public class Ram : MonoBehaviour
 
 
     GameObject GM;
-    spillet sp;
     AktiveSpillere AS;
     LavFunktion LF;
     svar sv;
@@ -23,7 +22,6 @@ public class Ram : MonoBehaviour
     void Start()
     {
         GM =GameObject.Find("GameManager");
-        sp=GM.GetComponent<spillet>();
         AS=GM.GetComponent<AktiveSpillere>();
         LF=GM.GetComponent<LavFunktion>();
         sv=GM.GetComponent<svar>();
@@ -42,7 +40,7 @@ public class Ram : MonoBehaviour
         
             Debug.Log(DisMellem);
 
-        }*/
+        }
 
         if (sv.listeRigtige.Count==AS.Aktiv.Count){
             
@@ -51,7 +49,7 @@ public class Ram : MonoBehaviour
             }
 
 
-        }
+        }*/
         
 
         

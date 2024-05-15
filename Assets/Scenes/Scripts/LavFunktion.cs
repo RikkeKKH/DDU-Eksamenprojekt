@@ -11,7 +11,9 @@ public class LavFunktion : MonoBehaviour
     GameObject GM;
     svar sv;
 
-    spillet sp;
+    SpawnVaser SpV;
+
+    //spillet sp;
 
 
     string[] Speciel ={"sin(x)","cos(x)","e<sup>x</sup>","ln(x)"};
@@ -27,9 +29,8 @@ public class LavFunktion : MonoBehaviour
 
     public TextMeshProUGUI tiimer;
 
-    //int rundeNr=0;
 
-    //public TextMeshProUGUI[] TextListe;
+
     List <string> svarmuligheder=new List<string>{"","","",""};
     List <string> svarmuligheder1;
     List <string> svarmuligheder2;
@@ -59,12 +60,12 @@ public class LavFunktion : MonoBehaviour
     
 
 
-    // Start is called before the first frame update
     void Start()
     {   
         GM =GameObject.Find("GameManager");
         sv=GM.GetComponent<svar>();
-        sp=GM.GetComponent<spillet>();
+        SpV=GM.GetComponent<SpawnVaser>();
+
 
 
         TextListe = new List<TextMeshProUGUI> { VenstreSvarmulighed, MidtSvarmulighed, HøjreSvarmulighed, TopSvarmulighed };
@@ -198,7 +199,6 @@ public class LavFunktion : MonoBehaviour
             TextListe[PladsOptaget[i]].text=svarmuligheder[i];
         }
 
-        //Debug.Log("PO"+PladsOptaget[0]);
 
 
         if (Input.GetKeyDown(KeyCode.Return)){
@@ -222,13 +222,13 @@ public class LavFunktion : MonoBehaviour
                 resetSvar();
             }
             if(rundeNr==4){
+                SpV.Plads.Clear();
                 sv.listeRigtige.Clear();
                 PladsOptaget.Clear();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmuligheder2[i]);
                 }
-                sp.koerigennem=true;
             }
             if (rundeNr==5){
                 svarmuligheder.Clear();
@@ -238,13 +238,13 @@ public class LavFunktion : MonoBehaviour
                 resetSvar();
             }
             if(rundeNr==6){
+                SpV.Plads.Clear();
                 sv.listeRigtige.Clear();
                 PladsOptaget.Clear();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmuligheder3[i]);
                 }
-                sp.koerigennem=true;
             }
             if (rundeNr==7){
                 svarmuligheder.Clear();
@@ -254,13 +254,13 @@ public class LavFunktion : MonoBehaviour
                 resetSvar();
             }
             if(rundeNr==8){
+                SpV.Plads.Clear();
                 sv.listeRigtige.Clear();
                 PladsOptaget.Clear();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmuligheder4[i]);
                 }
-                sp.koerigennem=true;
             }
             if (rundeNr==9){
                 svarmuligheder.Clear();
