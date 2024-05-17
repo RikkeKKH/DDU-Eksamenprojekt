@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class LavFunktion : MonoBehaviour
 {
@@ -10,10 +11,21 @@ public class LavFunktion : MonoBehaviour
 
     GameObject GM;
     svar sv;
-
+    AktiveSpillere AS;
     SpawnVaser SpV;
+    Ram rm;
 
-    //spillet sp;
+
+    public Image baggrund;
+
+    public Sprite sort;
+    public Sprite gennemsigtig;
+
+    public bool tidenGåetRotW=false;
+    public bool tidenGåetRotArrow=false;
+    public bool tidenGåetRotI=false;
+    public bool tidenGåetRotT=false;
+
 
 
     string[] Speciel ={"sin(x)","cos(x)","e<sup>x</sup>","ln(x)"};
@@ -42,9 +54,17 @@ public class LavFunktion : MonoBehaviour
 
     public int rundeNr =0;
     
-    float timer =15;
+    public float timer =15;
 
-    bool tidenGået =false;
+    public bool timerBool=true;
+
+    public bool tidenGået =false;
+
+    public bool PointTid=false;
+
+    string FunktionString;
+
+
 
     void resetSvar(){
         sv.P1t=false;
@@ -57,6 +77,60 @@ public class LavFunktion : MonoBehaviour
         sv.P4s=5;
     }
 
+    void justerPlayers(){
+        if (AS.Player_1==true){
+            AS.I1.transform.position = new Vector3(0,1.5f,9);
+        }
+        if (AS.Player_2==true){
+            AS.I2.transform.position = new Vector3(9,1.5f,0);
+        }
+        if (AS.Player_3==true){
+            AS.I3.transform.position = new Vector3(0,1.5f,-9);
+        }
+        if (AS.Player_4==true){
+            AS.I4.transform.position = new Vector3(-9,1.5f,0);
+        }
+
+        baggrund.sprite=gennemsigtig;
+
+        HovedFunktion.text="";
+
+    }
+
+    void clearLister(){
+        SpV.Plads.Clear();
+        //sv.listeRigtige.Clear();
+        PladsOptaget.Clear();
+        if (rundeNr!=10){
+            HovedFunktion.text=FunktionString;
+        }
+        
+
+    }
+
+    void resetRot(){
+        tidenGåetRotW=true;
+        tidenGåetRotArrow=true;
+        tidenGåetRotI=true;
+        tidenGåetRotT=true;
+
+        if (AS.Player_1==true){
+            rm.trykket[0]=false;
+        }
+        if (AS.Player_2==true){
+            rm.trykket[1]=false;
+        }
+        if (AS.Player_3==true){
+            rm.trykket[2]=false;
+        }
+        if (AS.Player_4==true){
+            rm.trykket[3]=false;
+        }
+
+        sv.listeTrykket.Clear();
+
+    }
+
     
 
 
@@ -65,6 +139,8 @@ public class LavFunktion : MonoBehaviour
         GM =GameObject.Find("GameManager");
         sv=GM.GetComponent<svar>();
         SpV=GM.GetComponent<SpawnVaser>();
+        AS=GM.GetComponent<AktiveSpillere>();
+        rm=GM.GetComponent<Ram>();
 
 
 
@@ -177,7 +253,9 @@ public class LavFunktion : MonoBehaviour
 
         var Funktion=a+"x<sup>"+n+"</sup>+"+b+"x+"+Speciel[s]+"+"+k;
 
-        HovedFunktion.text=Funktion.ToString();
+        FunktionString=Funktion.ToString();
+
+        //HovedFunktion.text=Funktion.ToString();
         
        
 
@@ -201,93 +279,117 @@ public class LavFunktion : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Return)){
+        if (tidenGået==true){
             rundeNr=rundeNr+1;
            
-            
-
             timer=15;
 
+            resetRot();
+
+
+
             if(rundeNr==2){
+                baggrund.sprite=sort;
                 svarmuligheder.Clear();
+                clearLister();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmuligheder1[i]);
                 }
             }
             if (rundeNr==3){
+                justerPlayers();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmulighederBlank[i]);
                 }
                 resetSvar();
+                timerBool=true;
             }
             if(rundeNr==4){
-                SpV.Plads.Clear();
-                sv.listeRigtige.Clear();
-                PladsOptaget.Clear();
+                baggrund.sprite=sort;
+                PointTid=true;
+                clearLister();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmuligheder2[i]);
                 }
+                timerBool=true;
             }
             if (rundeNr==5){
+                justerPlayers();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmulighederBlank[i]);
                 }
                 resetSvar();
+                timerBool=true;
             }
             if(rundeNr==6){
-                SpV.Plads.Clear();
-                sv.listeRigtige.Clear();
-                PladsOptaget.Clear();
+                baggrund.sprite=sort;
+                PointTid=true;
+                clearLister();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmuligheder3[i]);
                 }
+                timerBool=true;
             }
             if (rundeNr==7){
+                justerPlayers();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmulighederBlank[i]);
                 }
                 resetSvar();
+                timerBool=true;
             }
             if(rundeNr==8){
-                SpV.Plads.Clear();
-                sv.listeRigtige.Clear();
-                PladsOptaget.Clear();
+                baggrund.sprite=sort;
+                PointTid=true;
+                clearLister();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmuligheder4[i]);
                 }
+                timerBool=true;
             }
             if (rundeNr==9){
+                justerPlayers();
                 svarmuligheder.Clear();
                 for (int i=0;i<4;i++){
                     svarmuligheder.Add(svarmulighederBlank[i]);
                 }
+                timerBool=true;
             }
+            if (rundeNr==10){
+                PointTid=true;
+            }
+            tidenGået=false;
 
 
         }
+
+       
+
+        timer-=Time.deltaTime;
+
+        
 
         if (timer<0){
             tidenGået=true;
         }
 
-        timer-=Time.deltaTime;
+        if (rundeNr==0||rundeNr==10){
+            timer=100;
+            tiimer.text="Tryk på mellemrum for at starte";
+        }
+        else{
+            tiimer.text=Mathf.Round(timer).ToString();
+        }
 
-        tiimer.text=timer.ToString();
 
         
      
-
-        
-       
-
-    
-
 
         
 

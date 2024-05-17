@@ -7,12 +7,13 @@ public class RotArrow : MonoBehaviour
    
     public GameObject nulpunkt;
 
+    public LavFunktion LF;
+
     
     public float speed=5f;
 
     bool roter = false;
     bool midt = false;
-    bool stop = false;
 
 
     int tryk=0;
@@ -23,6 +24,12 @@ public class RotArrow : MonoBehaviour
     public Ram rm;
 
     bool start=false;
+
+    void resetVar(){
+        midt=false;
+        tryk=0;
+        rm.rArrowStop=false;
+    }
     
 
     
@@ -36,6 +43,12 @@ public class RotArrow : MonoBehaviour
     
     void Update()
     {   
+
+        if(LF.tidenGåetRotArrow==true){
+            resetVar();
+            LF.tidenGåetRotArrow=false;
+        }
+
         
         float distance =Vector3.Distance(this.transform.position,nulpunkt.transform.position);
         Vector3 retning = nulpunkt.transform.position - transform.position;
@@ -97,6 +110,7 @@ public class RotArrow : MonoBehaviour
 
             if (tryk==2){
                 rm.rArrowStop=true;
+                rm.trykket[1]=true;
 
             }
 

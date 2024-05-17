@@ -6,13 +6,13 @@ public class RotI : MonoBehaviour
 {
    
     public GameObject nulpunkt;
+    public LavFunktion LF;
 
     
     public float speed=5f;
 
     bool roter = false;
     bool midt = false;
-    bool stop = false;
 
 
     int tryk=0;
@@ -23,6 +23,12 @@ public class RotI : MonoBehaviour
     public Ram rm;
 
     bool start=false;
+
+    void resetVar(){
+        midt=false;
+        tryk=0;
+        rm.rIStop=false;
+    }
     
 
     
@@ -36,6 +42,14 @@ public class RotI : MonoBehaviour
     
     void Update()
     {   
+
+        if(LF.tidenGåetRotI){
+            resetVar();
+            LF.tidenGåetRotI=false;
+        }
+
+
+
         if (SG.startet==true&& tryk==0){
             start=true;
         }
@@ -76,7 +90,7 @@ public class RotI : MonoBehaviour
         if (roter==false){
 
 
-            if (stop==false&& tryk==1){
+            if (rm.rIStop==false&& tryk==1){
                 if (midt==false){
                     transform.position = transform.position+retning*speed*Time.deltaTime;
 
@@ -98,7 +112,8 @@ public class RotI : MonoBehaviour
             }   
 
             if (tryk==2){
-                stop=true;
+                rm.rIStop=true;
+                rm.trykket[2]=true;
 
             }
 

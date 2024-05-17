@@ -22,6 +22,8 @@ public class SpawnVaser : MonoBehaviour
 
     public List<GameObject> vaseType = new List<GameObject>();
 
+    float minDistance =2.5f;
+
 
 
 
@@ -47,19 +49,19 @@ public class SpawnVaser : MonoBehaviour
                     Plads.Add(tilfældigPlads);
                 }
                 else if (Plads.Count==1) {
-                    while (Vector3.Distance(Plads[0],tilfældigPlads)<1f){
+                    while (Vector3.Distance(Plads[0],tilfældigPlads)<minDistance){
                         tilfældigPlads =new Vector3(Random.Range(-7f,7f),1.2f,Random.Range(-7f,7f));
                     }
                     Plads.Add(tilfældigPlads);
                 }
                 else if (Plads.Count==2){
-                    while (Vector3.Distance(Plads[0],tilfældigPlads)<1f||Vector3.Distance(Plads[1],tilfældigPlads)<1f){
+                    while (Vector3.Distance(Plads[0],tilfældigPlads)<minDistance||Vector3.Distance(Plads[1],tilfældigPlads)<minDistance){
                         tilfældigPlads =new Vector3(Random.Range(-7f,7f),1.2f,Random.Range(-7f,7f));
                     }
                     Plads.Add(tilfældigPlads);
                 }
                 else if (Plads.Count==3){
-                    while (Vector3.Distance(Plads[0],tilfældigPlads)<1f||Vector3.Distance(Plads[1],tilfældigPlads)<1f||Vector3.Distance(Plads[2],tilfældigPlads)<1f){
+                    while (Vector3.Distance(Plads[0],tilfældigPlads)<minDistance||Vector3.Distance(Plads[1],tilfældigPlads)<minDistance||Vector3.Distance(Plads[2],tilfældigPlads)<minDistance){
                         tilfældigPlads =new Vector3(Random.Range(-7f,7f),1.2f,Random.Range(-7f,7f));
                     }
                     Plads.Add(tilfældigPlads);

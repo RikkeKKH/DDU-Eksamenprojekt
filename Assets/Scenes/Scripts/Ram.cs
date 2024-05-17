@@ -24,6 +24,15 @@ public class Ram : MonoBehaviour
     public List <int> ramtVenteliste=new List<int>();
     public List <int> givPointVenteliste=new List<int>();
 
+    float maxDistance= 1.5f;
+
+    public List<bool> trykket;
+
+    public bool givScore=false;
+
+
+
+
 
 
 
@@ -32,6 +41,9 @@ public class Ram : MonoBehaviour
    
     void Start()
     {
+        trykket= new List<bool>() { true, true, true, true };
+
+
         GM =GameObject.Find("GameManager");
         AS=GM.GetComponent<AktiveSpillere>();
         LF=GM.GetComponent<LavFunktion>();
@@ -45,6 +57,7 @@ public class Ram : MonoBehaviour
     void Update()
     {   
 
+
         if (LF.rundeNr==3||LF.rundeNr==5||LF.rundeNr==7||LF.rundeNr==9){
             
             if (AS.Player_1==true){
@@ -52,7 +65,7 @@ public class Ram : MonoBehaviour
                     if (sv.P1r==true){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance1=Vector3.Distance(AS.I1.transform.position,SP.Plads[i]);
-                            if (distance1<2){
+                            if (distance1<maxDistance){
                                 if (!ramt.Contains(i)){
                                     ramt.Add(i);
                                     givPoint[0]=true;
@@ -67,7 +80,7 @@ public class Ram : MonoBehaviour
                     if (sv.P1r==false){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance1=Vector3.Distance(AS.I1.transform.position,SP.Plads[i]);
-                            if (distance1<2){
+                            if (distance1<maxDistance){
                                 if (!ramtVenteliste.Contains(i)||!ramt.Contains(i)){
                                     ramtVenteliste.Add(i);
                                     givPointVenteliste.Add(0);
@@ -87,7 +100,7 @@ public class Ram : MonoBehaviour
                     if (sv.P2r==true){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance2=Vector3.Distance(AS.I2.transform.position,SP.Plads[i]);
-                            if (distance2<2){
+                            if (distance2<maxDistance){
                                 if (!ramt.Contains(i)){
                                     ramt.Add(i);
                                     givPoint[1]=true;
@@ -102,7 +115,7 @@ public class Ram : MonoBehaviour
                     if (sv.P2r==false){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance2=Vector3.Distance(AS.I2.transform.position,SP.Plads[i]);
-                            if (distance2<2){
+                            if (distance2<maxDistance){
                                 if (!ramtVenteliste.Contains(i)||!ramt.Contains(i)){
                                     ramtVenteliste.Add(i);
                                     givPointVenteliste.Add(1);
@@ -122,7 +135,7 @@ public class Ram : MonoBehaviour
                     if (sv.P3r==true){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance3=Vector3.Distance(AS.I2.transform.position,SP.Plads[i]);
-                            if (distance3<2){
+                            if (distance3<maxDistance){
                                 if (!ramt.Contains(i)){
                                     ramt.Add(i);
                                     givPoint[2]=true;
@@ -137,7 +150,7 @@ public class Ram : MonoBehaviour
                     if (sv.P3r==false){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance3=Vector3.Distance(AS.I3.transform.position,SP.Plads[i]);
-                            if (distance3<2){
+                            if (distance3<maxDistance){
                                 if (!ramtVenteliste.Contains(i)||!ramt.Contains(i)){
                                     ramtVenteliste.Add(i);
                                     givPointVenteliste.Add(2);
@@ -153,11 +166,11 @@ public class Ram : MonoBehaviour
             }
 
             if (AS.Player_4==true){
-                if (rArrowStop==true){
+                if (rTStop==true){
                     if (sv.P4r==true){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance4=Vector3.Distance(AS.I4.transform.position,SP.Plads[i]);
-                            if (distance4<2){
+                            if (distance4<maxDistance){
                                 if (!ramt.Contains(i)){
                                     ramt.Add(i);
                                     givPoint[3]=true;
@@ -172,7 +185,7 @@ public class Ram : MonoBehaviour
                     if (sv.P4r==false){
                         for (int i=0;i<SP.Plads.Count;i++){
                             float distance4=Vector3.Distance(AS.I4.transform.position,SP.Plads[i]);
-                            if (distance4<2){
+                            if (distance4<maxDistance){
                                 if (!ramtVenteliste.Contains(i)||!ramt.Contains(i)){
                                     ramtVenteliste.Add(i);
                                     givPointVenteliste.Add(3);
@@ -198,6 +211,12 @@ public class Ram : MonoBehaviour
 
 
             }
+            if (LF.PointTid==true){
+                givScore=true;
+                LF.PointTid=false;
+
+            }
+
 
             for (int i=0;i<4;i++){
                 if (givPoint[i]==true){
@@ -206,38 +225,22 @@ public class Ram : MonoBehaviour
             }
         }
 
-       
+        if (LF.rundeNr>1){
 
-        
-        
-        
-        
-        
-        
-        
-        /*if(LF.rundeNr==3&&sv.P1r==true){
-            float DisMellem =Vector3.Distance(AS.I1.transform.position,sp.P1va.transform.position);
-
-    
-        
-            Debug.Log(DisMellem);
-
+            if(!trykket.Contains(false)){
+                if(LF.timerBool==true){
+                    LF.timer=1;
+                    LF.timerBool=false;
+                }
+                
+            }
         }
 
-        if (sv.listeRigtige.Count==AS.Aktiv.Count){
-            
-            if (rwStop==true){
-                Debug.Log("test");
-            }
 
+       
 
-        }*/
-        
-
-        
-
-
-
+       
+       
         
     }
 }

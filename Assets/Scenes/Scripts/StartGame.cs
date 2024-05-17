@@ -7,10 +7,16 @@ public class StartGame : MonoBehaviour
 
     public bool startet =false;
 
+    public AktiveSpillere AS;
+    public LavFunktion LF;
+
+    bool erStartet;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        erStartet =false;
         
     }
 
@@ -18,13 +24,13 @@ public class StartGame : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.M)){
+        if (Input.GetKeyDown("space")&&AS.Aktiv.Count>1&&erStartet==false){
             startet =true;
-
-
-
+            LF.rundeNr=1;
+            LF.tidenGået=true;
+            erStartet=true;
+        
         }
-
 
         
     }
